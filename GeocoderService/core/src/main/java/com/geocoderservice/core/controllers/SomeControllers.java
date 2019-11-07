@@ -13,11 +13,25 @@ public class SomeControllers {
 
     private OtvetService otvetService;
 
+@RestController
+@RequestMapping("/hello")
+public class OtvetController {
 
-    @GetMapping("/hello/{id}")
-    public Otvet sayHello(@PathVariable Long id){
-        return otvetService.getOtvet(id);
+    private final OtvetService service;
 
-
+    @Autowired
+    public OtvetController(OtvetService service) {
+        this.service = service;
     }
+
+    @PostMapping
+    public ResponseEntity<Otvet> save(@RequestBody Otvet otvet) {
+        return service.save(otvet).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
+                .orElseThrow(() -> new UserException(
+                        String.format(ErrorType.Otvet_NOT_SAVED.getDescription(), otvet.toString())
+                ));
+    }
+
+    String query = " insert into otvet (adress, dolgota, shirota)"  + " values (arg1,arg2,arg3)";
+    //arg с клавиатуры будем вводить в файле,где создаем сущность(наши долгота и широта,или адресс)
 }
