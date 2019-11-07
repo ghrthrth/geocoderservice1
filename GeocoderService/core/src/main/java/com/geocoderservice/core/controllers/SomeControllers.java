@@ -11,7 +11,6 @@ import com.geocoderservice.core.model.Otvet;
 @RequiredArgsConstructor
 public class SomeControllers {
 
-    private OtvetService otvetService;
 
 @RestController
 @RequestMapping("/otvet")
