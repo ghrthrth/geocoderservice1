@@ -14,7 +14,7 @@ public class SomeControllers {
     private OtvetService otvetService;
 
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/otvet")
 public class OtvetController {
 
     private final OtvetService service;
