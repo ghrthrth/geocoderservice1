@@ -1,4 +1,4 @@
-package by.googlemapid.sample;
+package com.geocoderservice.core.services;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
