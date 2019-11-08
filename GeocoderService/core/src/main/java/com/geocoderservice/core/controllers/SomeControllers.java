@@ -20,10 +20,9 @@ public class OtvetController {
 
     @PostMapping
     public ResponseEntity<Otvet> save(@RequestBody Otvet otvet) {
-                .orElseGet(()
-return service.save(otvet).map(u -> new ResponseEntity<>(u, HttpStatus.OK)) -> new OtvetException(
-                        String.format(ErrorType.Otvet_NOT_SAVED.getDescription(), otvet.toString())
-                ));
+                .orElseGet((service.save(otvet).map(u -> new ResponseEntity<>(u, HttpStatus.OK)) )) 
+ -> new OtvetException(
+                        String.format(ErrorType.Otvet_NOT_SAVED.getDescription(), otvet.toString());
     }
 
     String query = " insert into otvet (adress, dolgota, shirota)"  + " values (arg1,arg2,arg3)";
