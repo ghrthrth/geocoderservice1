@@ -16,7 +16,7 @@ import com.google.common.collect.Maps;
 @Service
 @RequiredArgsConstructor
 //Geocoder
-public class OtvetServiceImpl implements OtvetService extends AbstractSample {
+public class ResponceServiceImpl implements ResponceService extends AbstractSample {
     public static void main(final String[] args) throws IOException, JSONException {
         final String baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAeaUSU-awyf8b3x14tX9luIUkueFGBBJg&";
         final Map<String, String> params = Maps.newHashMap();
@@ -35,11 +35,11 @@ public class OtvetServiceImpl implements OtvetService extends AbstractSample {
     }
 
 
-    private OtvetRepository otvetRepository;
+    private ResponceRepository responceRepository;
 
 
     @Override
-    public Otvet getOtvet(Long id) {
-        return otvetRepository.findById(id).get();
+    public Responce getResponce(Long id) {
+        return responceRepository.findById(id).get();
     
 }
