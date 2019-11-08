@@ -8,11 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.geocoderservice.core.model.Otvet;
 
 @RestController
-@RequiredArgsConstructor
-public class SomeControllers {
-
-
-@RestController
 @RequestMapping("/otvet")
 public class OtvetController {
 
@@ -33,4 +28,4 @@ public class OtvetController {
 
     String query = " insert into otvet (adress, dolgota, shirota)"  + " values (arg1,arg2,arg3)";
     //arg с клавиатуры будем вводить в файле,где создаем сущность(наши долгота и широта,или адресс)
-}
+
