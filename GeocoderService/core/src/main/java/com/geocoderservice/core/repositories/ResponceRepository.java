@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OtvetRepository extends CrudRepository<Otvet, Long> {
+public interface ResponceRepository extends CrudRepository<Responce, Long> {
 
 }
