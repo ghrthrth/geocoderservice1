@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.RestController;
 import com.geocoderservice.core.model.Otvet;
 
 @RestController
-@RequestMapping("/otvet")
-public class OtvetController {
+@RequestMapping("/responce")
+public class ResponceController {
 
-    private final OtvetService service;
+    private final ResponceService service;
 
     @Autowired
-    public OtvetController(OtvetService service) {
+    public ResponceController(ResponceService service) {
         this.service = service;
     }
 
     @PostMapping
-    public ResponseEntity<Otvet> save(@RequestBody Otvet otvet) {
-                .orElseGet((service.save(otvet).map(u -> new ResponseEntity<>(u, HttpStatus.OK)) )) 
- -> new OtvetException(
-                        String.format(ErrorType.Otvet_NOT_SAVED.getDescription(), otvet.toString());
+    public ResponseEntity<Otvet> save(@RequestBody Responce responce) {
+                .orElseGet((service.save(responce).map(u -> new ResponseEntity<>(u, HttpStatus.OK)) )) 
+ -> new ResponceException(
+                        String.format(ErrorType.Responce_NOT_SAVED.getDescription(), responce.toString());
     }
 
     String query = " insert into otvet (adress, dolgota, shirota)"  + " values (arg1,arg2,arg3)";
