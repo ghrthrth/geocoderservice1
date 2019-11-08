@@ -20,8 +20,8 @@ public class OtvetController {
 
     @PostMapping
     public ResponseEntity<Otvet> save(@RequestBody Otvet otvet) {
-        return service.save(otvet).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
-                .orElseThrow(() -> new UserException(
+                .orElseGet(()
+return service.save(otvet).map(u -> new ResponseEntity<>(u, HttpStatus.OK)) -> new OtvetException(
                         String.format(ErrorType.Otvet_NOT_SAVED.getDescription(), otvet.toString())
                 ));
     }
