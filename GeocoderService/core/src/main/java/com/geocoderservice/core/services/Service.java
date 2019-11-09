@@ -5,7 +5,6 @@
 @Setter
 @Entity
 @Table(name="result")
-public class Responce {
     @Entity
 public class Responce implements Serializable {
 
@@ -49,25 +48,13 @@ public class Responce implements Serializable {
 Controller
 //class controller
 
-@Service
-public class UserServiceImpl  {
+@Service//бывший сервис
+Responce get.Responce() 
+@Owerride user.getUser() 
 
-    Optional<User> save(User user);
-    private final UserRepository userRepository;
-
-    @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @Override
-    public Optional<User> save(User user) {
-        return Optional.of(userRepository.save(user));
-    }
-}
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/request")
 public class UserController {
 
     private final UserService service;
@@ -77,14 +64,14 @@ public class UserController {
         this.service = service;
     }
 
-    @PostMapping
-    public ResponseEntity<User> save(@RequestBody User user) {
-        return service.save(user).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
-                .orElseThrow(() -> new UserException(
-                        String.format(ErrorType.USER_NOT_SAVED.getDescription(), user.toString())
+    @PostMapping("/Responce/{adress}") 
+
+    Public Reponce sayAdress(@PathVariable Long adress) {
+return responceService.getReponce(adress);
                 ));
     }
 }
+
 
 Принимаем даннве, обрабатываем, обрашаемся к репозиторию
 Билд ответа, возврат ответа
