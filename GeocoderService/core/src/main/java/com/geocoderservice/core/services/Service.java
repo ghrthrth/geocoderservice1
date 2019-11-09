@@ -13,6 +13,18 @@ Private Long Id;
 Private String adress;
 Private String coordinates;
 } 
+@RestController
+@RequiredArgsConstructor 
+Public class SomeControllers{
+
+@PostMapping("/Responce/{adress}") 
+
+    Public Reponce sayAdress(@PathVariable Long adress) {
+return responceService.getReponce(adress);
+                ));
+    }
+
+
 
 
 //Repository
