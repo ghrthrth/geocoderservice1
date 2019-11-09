@@ -35,7 +35,29 @@ Private final ResponceRepository responceRepository;
 
 @Override 
 Public Responce get.Responce(adress) {
-return responceRepository.findById(adress) ;
+return responceRepository.findById(adress);
+
+        String baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAeaUSU-awyf8b3x14tX9luIUkueFGBBJg&";
+        final Map<String, String> params = Maps.newHashMap();
+        params.put("sensor", "false");
+        params.put("address", "adress");
+        final String url = baseUrl + encodeParams(params);
+        System.out.println(url);
+        final JSONObject response = JsonReader.read(url);
+
+        JSONObject location = response.getJSONArray("results").getJSONObject(0);
+        location = location.getJSONObject("geometry");
+        location = location.getJSONObject("location");
+        final double lng = location.getDouble("lng");
+        final double lat = location.getDouble("lat");
+        System.out.println(String.format("%f,%f", lat, lng));
+    }
+}
+
+
+
+
+
 } 
 //controllers
     @PostMapping("/Responce/{adress}") 
