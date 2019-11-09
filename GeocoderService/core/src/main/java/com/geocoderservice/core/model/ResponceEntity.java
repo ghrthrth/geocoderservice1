@@ -12,16 +12,13 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name="result")
-@NoArgsConstructor
-@AllArgsConstructor
 public class Responce {
     @Entity
 public class Responce implements Serializable {
 
     private Long id;
     private String adress;
-    private String longitude;
-    private String latitude;
+    private String coordinates;
 
     @Id
     @GeneratedValue
@@ -43,21 +40,14 @@ public class Responce implements Serializable {
     }
 
     @Column
-    public String getLongitude() {
+    public String getCoordinates() {
         return longitude;
     }
 
-    public void setLongitude(String phone) {
-        this.longitude = phone;
+    public void setCoordimates(String phone) {
+        this.coordinates = coordinates;
     }
 
-    @Column
-    public String getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(String phone) {
-        this.latitude = latitude;
-    }
+    
 
 }
