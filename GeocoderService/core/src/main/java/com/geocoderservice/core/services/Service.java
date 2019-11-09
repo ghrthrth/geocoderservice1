@@ -1,6 +1,6 @@
 
-//class entity
-
+//package model
+{
 @Getter
 @Setter
 @Entity
@@ -12,12 +12,19 @@ Public class Respoce{
 Private Long Id;
 Private String adress;
 Private String coordinates;
+} 
 
 
+//Repository
+Import model(лень писать полностью)//это главный импорт тут, остальное и так понятно
+@Repository
+Piblic interface ResponceRepository extends CrudRepository <Responce, Long>{
+Responce get.ById(adress);
+} 
     
 
 
-
+//
 Controller
 //service
 Responce getResponce(adress);
